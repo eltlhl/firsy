@@ -8,17 +8,102 @@
 
 
     <script>
+        //1 задание
+        var a = 1, b = 1, c, d;
+
+        c = ++a; alert(c);           // 2 т.к. в префиксной форме инкрементирование производится сразу, а возврат — уже с обновленным значением.
+
+        d = b++; alert(d);           // 1 т.к. постфиксной форме сначала происходит возвращение значения, а потом выполняется инкрементирование.
+
+        c = (2 + ++a); alert(c);      // 5 т.к. ++а сразу приняло значение равное 3 и вернулось с обновленным значением.
+
+        d = (2 + b++); alert(d);      // 4 т.к. b++ = 2 т.к. сначало произошло возвращение значения.
+
+        alert(a);                    // 3 возврат уже обновленного значения
+
+        alert(b);                    // 3 произошло инкрементирование значения предидущего значения равного 2
+
+        //2 задание
+        var a = 2;
+        var x = 1 + (a *= 2);
+        // x = 5 т.к. а*=2 эквивалентно а=а*2,соответственно сначала выполняется значение в скобках и а=4,после добавляется единица x = 1+4.(в соответствии с приоритетами операций)
+
+        //3 задание
+        const a = Number(prompt("введите число а"));
+        const b = Number(prompt("введите число b"));
+        if (a > 0 && b > 0)
+            alert(a - b);
+        else if (a < 0 && b < 0)
+            alert(a * b);
+        else if ((a < 0 && b > 0) || (a > 0 && b < 0))
+            alert(a + b);
+
+        //4 задание
+
+        const a = 6;
+        switch (a) {
+
+            case "6":
+                alert(6)
+            case "7":
+                alert(7)
+                break;
+            case "8":
+                alert(8)
+            case "9":
+                alert(9)
+            case "10":
+                alert(10)
+            case "11":
+                alert(11)
+            case "12":
+                alert(12)
+            case "13":
+                alert(13)
+            case "14":
+                alert(14)
+            case "15":
+                alert(15)
+        }
 
 
-        var tempC = 0;
-        var tempF = (9 / 5) * tempC + 32;
-        alert("Temperature in Fahrenheit: " + tempF + "F ");
-        var name;
-        var admin;
-        var name = "Василий";
-        admin = name;
-        alert(admin);
-        alert(1000 + "108");
+        //5 задание  5. Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+        function addNum(x, y) {
+            const res = x + y;
+            return res;
+        }
+        function minNum(x, y) {
+            const res = x - y;
+            return res;
+        }
+        function multNum(x, y) {
+            const res = x * y;
+            return res;
+        }
+        function divNum(x, y) {
+            const res = x / y;
+            return res;
+        }
+
+
+        //6 задание Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+                case "разность":
+                    alert(arg1 - arg2)
+                    break;
+                case "умножение":
+                    alert(arg1 * arg2)
+                    break;
+                case "сложение":
+                    alert(arg1 + arg2)
+                    break;
+            }
+        }
+        const operation = prompt("введите название операции");
+        const arg1 = Number(prompt("введите число #1"));
+        const arg2 = Number(prompt("введите число #2"));
+
     </script>
 
 
