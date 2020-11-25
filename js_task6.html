@@ -1,0 +1,69 @@
+//1 задание:Доработать функцию замены картинки в галерее таким образом, чтобы она проверяла наличие картинки по указанному в src адресу.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document </title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function imgSearch() {
+            const img = document.getElementsByTagName("img");
+            for (let i = 0; i < img.length; i++) {
+                if (i < 2) {
+                    img[i].onclick = imgReconstract;
+                } else if (i = 2) {
+                    img[i].onclick = imgError;
+                }
+
+            }
+
+        }
+        function imgReconstract(eventObj) {
+            const imgDiv = document.getElementById("big_picture");
+            imgDiv.innerHTML = "";
+            const imgEvent = eventObj.target;
+            const imgPart = imgEvent.id.split("_");
+            const src = "img/big/" + imgPart[1] + ".jpg";
+            const imgDom = document.createElement("img");
+            imgDom.src = src;
+            imgDiv.appendChild(imgDom);
+        }
+
+        function imgError() {
+            console.log("error");
+        }
+
+        window.onload = imgSearch;
+    </script>
+</head>
+
+<body>
+    <main>
+        <div class="full_picture">
+            <div id="big">
+
+                <div id="big_picture"></div>
+
+            </div>
+            <div class="preview">
+                <img onclick="hand" class="preview-item"
+                    src="https://images.unsplash.com/photo-1605296830714-7c02e14957ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                    alt="PS5">
+                <img onclick="hand" class="preview-item"
+                    src="https://images.unsplash.com/photo-1605291952089-adcb85d4dcbd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                    alt="road">
+                <img onclick="hand" class="preview-item"
+                    src="https://images.unsplash.com/photo-1605325811474-ba58cf3180d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                    alt="palm">
+            </div>
+        </div>
+    </main>
+
+
+
+</body>
+
+
+</html>
